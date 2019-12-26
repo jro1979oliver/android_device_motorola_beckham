@@ -58,13 +58,16 @@ fi
 ###### NOTE: The below is no longer used but I'm keeping it here in case it is needed again at some point!
 mkdir -p /vendor/lib64/hw/
 
+cp /s/system/lib64/android.hardware.boot@1.0.so /sbin/
+cp /s/system/lib64/android.hardware.confirmationui@1.0.so /sbin/
 cp /s/system/lib64/android.hidl.base@1.0.so /sbin/
 cp /s/system/lib64/libicuuc.so /sbin/
-cp /s/system/lib64/libxml2.so /sbin/
+cp /s/system/lib64/libion.so /sbin/
 cp /s/system/lib64/libkeymaster4support.so /sbin/
 cp /s/system/lib64/libkeymaster_messages.so /sbin/
 cp /s/system/lib64/libkeymaster_portable.so /sbin/
 cp /s/system/lib64/libsoftkeymasterdevice.so /sbin/
+cp /s/system/lib64/libxml2.so /sbin/
 
 relink /v/bin/qseecomd
 
@@ -101,6 +104,7 @@ cp /v/lib64/libsecureui_svcsock.so /vendor/lib64/
 cp /v/lib64/libSecureUILib.so /vendor/lib64/
 cp /v/lib64/libssd.so /vendor/lib64/
 cp /v/lib64/libtime_genoff.so /vendor/lib64/
+cp /v/lib64/vendor.qti.hardware.tui_comm@1.0.so /vendor/lib64/
 
 if [ -f /v/manifest.xml ]; then
 	cp /v/manifest.xml /vendor/
