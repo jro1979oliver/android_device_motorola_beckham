@@ -12,6 +12,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb \
     persist.vendor.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb
 
+# Enable blurs, hidden under dev option
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.surface_flinger.supports_background_blur=1 \
+    persist.sys.sf.disable_blurs=1 \
+    ro.sf.blurs_are_expensive=1
+
 # Fluence
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.dualmic.config=endfire \
