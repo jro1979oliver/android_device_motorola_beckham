@@ -2,26 +2,26 @@
 
 relink()
 {
-	fname=$(basename "$1")
-	target="/sbin/$fname"
-	sed 's|/system/bin/linker64|///////sbin/linker64|' "$1" > "$target"
-	chmod 755 $target
+    fname=$(basename "$1")
+    target="/sbin/$fname"
+    sed 's|/system/bin/linker64|///////sbin/linker64|' "$1" > "$target"
+    chmod 755 $target
 }
 
 finish()
 {
-	umount /v
-	umount /s
-	rmdir /v
-	rmdir /s
-	setprop crypto.ready 1
-	exit 0
+    umount /v
+    umount /s
+    rmdir /v
+    rmdir /s
+    setprop crypto.ready 1
+    exit 0
 }
 
 suffix=$(getprop ro.boot.slot_suffix)
 if [ -z "$suffix" ]; then
-	suf=$(getprop ro.boot.slot)
-	suffix="_$suf"
+    suf=$(getprop ro.boot.slot)
+    suffix="_$suf"
 fi
 venpath="/dev/block/bootdevice/by-name/vendor$suffix"
 mkdir /v
@@ -42,25 +42,25 @@ fi
 
 build_prop_path="/s/build.prop"
 if [ -f /s/system/build.prop ]; then
-	build_prop_path="/s/system/build.prop"
+    build_prop_path="/s/system/build.prop"
 fi
 
 vendor_prop_path="/v/build.prop"
 if [ -f "$build_prop_path" ]; then
-	# TODO: It may be better to try to read these from the boot image than from /system
-	osver=$(grep -i 'ro.build.version.release' "$build_prop_path"  | cut -f2 -d'=')
-	patchlevel=$(grep -i 'ro.build.version.security_patch' "$build_prop_path"  | cut -f2 -d'=')
-	vendorlevel=$(grep -i 'ro.vendor.build.security_patch' "$vendor_prop_path"  | cut -f2 -d'=')
-	setprop ro.build.version.release "$osver"
-	setprop ro.build.version.security_patch "$patchlevel"
-	setprop ro.vendor.build.security_patch "$vendorlevel"
+    # TODO: It may be better to try to read these from the boot image than from /system
+    osver=$(grep -i 'ro.build.version.release' "$build_prop_path"  | cut -f2 -d'=')
+    patchlevel=$(grep -i 'ro.build.version.security_patch' "$build_prop_path"  | cut -f2 -d'=')
+    vendorlevel=$(grep -i 'ro.vendor.build.security_patch' "$vendor_prop_path"  | cut -f2 -d'=')
+    setprop ro.build.version.release "$osver"
+    setprop ro.build.version.security_patch "$patchlevel"
+    setprop ro.vendor.build.security_patch "$vendorlevel"
 else
-	# Be sure to increase the PLATFORM_VERSION in build/core/version_defaults.mk to override Google's anti-rollback features to something rather insane
-	osver=$(getprop ro.build.version.release_orig)
-	patchlevel=$(getprop ro.build.version.security_patch_orig)
-	setprop ro.build.version.release "$osver"
-	setprop ro.build.version.security_patch "$patchlevel"
-	setprop ro.vendor.build.security_patch "2018-11-05"
+    # Be sure to increase the PLATFORM_VERSION in build/core/version_defaults.mk to override Google's anti-rollback features to something rather insane
+    osver=$(getprop ro.build.version.release_orig)
+    patchlevel=$(getprop ro.build.version.security_patch_orig)
+    setprop ro.build.version.release "$osver"
+    setprop ro.build.version.security_patch "$patchlevel"
+    setprop ro.vendor.build.security_patch "2018-11-05"
 fi
 finish
 
@@ -107,11 +107,11 @@ cp /v/lib64/libtime_genoff.so /vendor/lib64/
 cp /v/lib64/vendor.qti.hardware.tui_comm@1.0.so /vendor/lib64/
 
 if [ -f /v/manifest.xml ]; then
-	cp /v/manifest.xml /vendor/
-	cp /v/compatibility_matrix.xml /vendor/
+    cp /v/manifest.xml /vendor/
+    cp /v/compatibility_matrix.xml /vendor/
 else
-	cp /v/etc/vintf/manifest.xml /vendor/
-	cp /v/etc/vintf/compatibility_matrix.xml /vendor/
+    cp /v/etc/vintf/manifest.xml /vendor/
+    cp /v/etc/vintf/compatibility_matrix.xml /vendor/
 fi
 
 relink /v/bin/hw/android.hardware.boot@1.0-service
