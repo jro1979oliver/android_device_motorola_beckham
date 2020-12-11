@@ -60,6 +60,7 @@ PRODUCT_PACKAGES += \
 TARGET_RECOVERY_FSTAB := device/motorola/sdm660-common/rootdir/etc/fstab.qcom
 
 # Device identifiers
+BUILD_FINGERPRINT := motorola/beckham/beckham:8.1.0/OPWS28.70-56-2/8ad8e:user/release-keys
 PRODUCT_DEVICE := beckham
 PRODUCT_NAME := aicp_beckham
 PRODUCT_BRAND := motorola
@@ -68,9 +69,16 @@ PRODUCT_MANUFACTURER := Motorola
 PRODUCT_RELEASE_NAME := beckham
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=beckham
+    PRODUCT_NAME=beckham \
+    PRIVATE_BUILD_DESC="beckham-user 8.1.0 OPWS28.70-56-2 8ad8e release-keys"
 
-BUILD_FINGERPRINT := motorola/beckham/beckham:8.1.0/OPWS28.70-56-2/8ad8e:user/release-keys
+# Match stock product info
+PRODUCT_OVERRIDE_INFO := true
+PRODUCT_OVERRIDE_NAME := beckham
+PRODUCT_OVERRIDE_FINGERPRINT := motorola/beckham/beckham:8.1.0/OPWS28.70-56-2/8ad8e:user/release-keys
+PRODUCT_OVERRIDE_DESC := beckham-user 8.1.0 OPWS28.70-56-2 8ad8e release-keys
+
+PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 # AICP Device Maintainers
 PRODUCT_BUILD_PROP_OVERRIDES += \
