@@ -16,7 +16,7 @@
 
 # Inherit some common Pixel Experience stuff.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/dot/config/common.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
@@ -26,9 +26,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 $(call inherit-product, device/motorola/beckham/device.mk)
 
 # Inherit some common Pixel Experience stuff.
+WITH_GAPPS=true
 TARGET_GAPPS_ARCH := arm64
 TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_INCLUDE_STOCK_ARCORE := true
+
+# FaceUnlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # A/B updater
 AB_OTA_UPDATER := true
@@ -66,13 +69,15 @@ TARGET_RECOVERY_FSTAB := device/motorola/sdm660-common/rootdir/etc/fstab.qcom
 
 # Device identifiers
 PRODUCT_DEVICE := beckham
-PRODUCT_NAME := aosp_beckham
+PRODUCT_NAME := dot_beckham
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := Moto Z3 Play
 PRODUCT_MANUFACTURER := Motorola
 PRODUCT_RELEASE_NAME := beckham
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=beckham
+    PRODUCT_NAME=beckham \
+    PRIVATE_BUILD_DESC="redfin-user 11 RQ2A.210405.005 7181113 release-keys"
 
-BUILD_FINGERPRINT := motorola/beckham/beckham:8.1.0/OPWS28.70-56-2/8ad8e:user/release-keys
+BUILD_FINGERPRINT := google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys
+
