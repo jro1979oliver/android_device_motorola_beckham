@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aicp_beckham.mk
+    $(LOCAL_DIR)/dotfe_beckham.mk
 
 COMMON_LUNCH_CHOICES := \
-    aicp_beckham-eng \
-    aicp_beckham-user \
-    aicp_beckham-userdebug
+    dotfe_beckham-eng \
+    dotfe_beckham-user \
+    dotfe_beckham-userdebug

@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-# Inherit some common aicp stuff.
+# Inherit some common dot stuff.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
+$(call inherit-product, vendor/dotfe/config/common.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
@@ -61,22 +61,20 @@ TARGET_RECOVERY_FSTAB := device/motorola/sdm660-common/rootdir/etc/fstab.qcom
 
 # Device identifiers
 PRODUCT_DEVICE := beckham
-PRODUCT_NAME := aicp_beckham
+PRODUCT_NAME := dotfe_beckham
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := Moto Z3 Play
 PRODUCT_MANUFACTURER := Motorola
 PRODUCT_RELEASE_NAME := beckham
+
+TARGET_BOOT_ANIMATION_RES := 1080
+WITH_GAPPS := false
+TARGET_FACE_UNLOCK_SUPPORTES := true
+TARGET_USES_BLUR := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto Z3 Play" \
     TARGET_DEVICE="beckham" \
     PRIVATE_BUILD_DESC="beckham-user 8.1.0 OPWS28.70-56-2 8ad8e release-keys"
 
-BUILD_FINGERPRINT := motorola/beckham/beckham:8.1.0/OPWS28.70-56-2/8ad8e:user/release-keys
-
-PRODUCT_OVERRIDE_INFO := true
-PRODUCT_OVERRIDE_FINGERPRINT := google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys
-
-# AICP Device Maintainers
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    DEVICE_MAINTAINERS="Jeferson Oliveira (jro1979oliver)"
+BUILD_FINGERPRINT := google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys
