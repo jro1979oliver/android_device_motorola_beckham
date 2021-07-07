@@ -291,7 +291,7 @@ vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_gt24c128b_mono_eeprom.so
 vendor/lib/libmmcamera_gt24c128b_rgb_eeprom.so
-vendor/lib/libmmcamera_hdr_gb_lib.so
+vendor/lib/libmmcamera_hdr_gb_lib.so|7c6b4b4d5a5ca41eacd698a8045daf708047fc41 # from lake-user-10-QPWS30.61-21-18-7-fac4a-release-keys
 vendor/lib/libmmcamera_hvx_add_constant.so
 vendor/lib/libmmcamera_hvx_grid_sum.so
 vendor/lib/libmmcamera_imglib_faceproc_adspstub.so
