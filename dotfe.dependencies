@@ -1,6 +1,23 @@
 [
   {
-    "repository":  "device_motorola_sdm660-common",
-    "target_path": "device/motorola/sdm660-common"
+    "repository" :   "device_motorola_sdm660-common",
+    "target_path":   "device/motorola/sdm660-common"
+  },
+  {
+   "remote"     :    "gitlab",  
+   "repository" :    "motorola_camera2_primary",
+   "target_path":    "packages/apps/MotCamera2",
+   "branch": "dot11"
+  },
+  {
+   "remote"     :    "gitlab",
+   "repository" :    "motorola_motosignatureapp",
+   "target_path":    "packages/apps/MotoSignatureApp",
+   "branch": "dot11"
+  },
+   "remote"     :    "gitlab",
+   "repository" :    "motorola_motorola_camera2_overlay",
+   "target_path":    "packages/apps/MotCamera2-overlay",
+   "branch": "dot11"
   }
 ]
